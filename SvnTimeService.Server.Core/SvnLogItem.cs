@@ -33,7 +33,7 @@ namespace SvnTimeService.Server.Core
                 string[] stringSplitAtHashtag = stringSplitAtSemicolon[3].Split('#');
                 //Mit Substring wird "comment:" weggeschnitten
                 UserComment = stringSplitAtHashtag[1].Substring("comment:".Length).Trim();
-                string durationString = stringSplitAtHashtag[2].Substring("duration:".Length);
+                string durationString = stringSplitAtHashtag[2].Substring("duration:".Length).Trim();
                 durationString = durationString.Replace('.', ','); //Damit auch Kommazahlen gelesen werden können
                 Duration = double.Parse(durationString);
             }
