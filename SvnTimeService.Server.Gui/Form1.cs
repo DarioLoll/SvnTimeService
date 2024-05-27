@@ -18,7 +18,7 @@ namespace SvnTimeService.Server.Gui
 
         private GuiLogger _logger;
 
-        private delegate void Log(string logMessage);
+        private delegate void LogMethod(string logMessage);
         
         public Form1()
         {
@@ -31,12 +31,12 @@ namespace SvnTimeService.Server.Gui
 
         private void OnRequestInfoLogged(object sender, string logMessage)
         {
-            Invoke(new Log(LogSystemInfo), logMessage);
+            Invoke(new LogMethod(LogSystemInfo), logMessage);
         }
 
         private void OnSystemInfoLogged(object sender, string logMessage)
         {
-            Invoke(new Log(LogRequestInfo), logMessage);
+            Invoke(new LogMethod(LogRequestInfo), logMessage);
         }
 
         private void LogSystemInfo(string logMessage)
@@ -52,50 +52,15 @@ namespace SvnTimeService.Server.Gui
         
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tbxPort.Text) && int.TryParse(tbxPort.Text, out int port))
-            {
-                if (!string.IsNullOrEmpty(tbxIp.Text))
-                {
-                    _server.Start(port, tbxIp.Text);
-                }
-                else
-                {
-                    _server.Start(port);
-                }
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(tbxIp.Text))
-                {
-                    _server.Start(TcpService.DefaultPort, tbxIp.Text);
-                    //_server.Start(4004, tbxIp.Text);
-                }
-                else
-                {
-                    _server.Start();
-                }
-            }
-            RefreshButtons();
+            _server.Start(IPAddress.Loopback, 4004);
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             _server.Stop();
-            RefreshButtons();
         }
 
-        private void RefreshButtons()
-        {
-            if (_server.IsOnline)
-            {
-                btnStart.Enabled = false;
-                btnStop.Enabled = true;
-            }
-            else
-            {
-                btnStart.Enabled = true;
-                btnStop.Enabled = false;
-            }
-        }
+        
+        
     }
 }

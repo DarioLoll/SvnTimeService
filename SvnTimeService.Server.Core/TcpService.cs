@@ -12,9 +12,6 @@ namespace SvnTimeService.Server.Core
         private IServiceLogger _logger;
 
         private ClientHandler _clientHandler;
-        
-        public const string DefaultIp = "127.0.0.1";
-        public const int DefaultPort = 4040;
 
         public bool IsOnline { get; private set; }
 
@@ -23,15 +20,10 @@ namespace SvnTimeService.Server.Core
             _logger = logger;
         }
 
-        public void Start(int port = DefaultPort, string ip = DefaultIp)
+        public void Start(IPAddress ipAddress, int port)
         {
             if (_socket != null && IsOnline)
                 return; //Wenn der Server schon gestartet ist, endet die Methode hier
-
-            if (!IPAddress.TryParse(ip, out IPAddress ipAddress))
-            {
-                ipAddress = IPAddress.Parse(DefaultIp);
-            }
 
             _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             _clientHandler = new ClientHandler(_socket, _logger);

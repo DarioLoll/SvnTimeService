@@ -11,11 +11,6 @@ namespace SvnTimeService.Server.Core
         {
             _path = path;
         }
-        
-        public void Save(string[] lines)
-        {
-            File.WriteAllLines(_path, lines);
-        }
 
         public string[] Load()
         {

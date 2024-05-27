@@ -22,9 +22,10 @@ namespace SvnTimeService.Server.Core
             SystemInfoLogged?.Invoke(this, logMsg);
         }
 
-        protected virtual void OnRequestInfoLogged(string logMsg)
+
+        protected virtual void OnRequestInfoLogged(string e)
         {
-            RequestInfoLogged?.Invoke(this, logMsg);
+            RequestInfoLogged?.Invoke(this, e);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace SvnTimeService.Shared
         {
             byte[] buffer = new byte[1024];
             _socket.Receive(buffer);
-            string text = Encoding.ASCII.GetString(buffer).Trim('\0');
+            string text = Encoding.UTF8.GetString(buffer).Trim('\0');
             return text;
         }
     }

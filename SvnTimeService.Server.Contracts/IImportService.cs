@@ -2,8 +2,6 @@
 {
     public interface IImportService
     {
-        void Save(string[] lines);
-        
         string[] Load();
     }
 }

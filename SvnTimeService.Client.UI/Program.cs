@@ -11,33 +11,27 @@ namespace SvnTimeService.Client.UI
             IPAddress ip;
             int port;
             SvnTimeClient _client = new SvnTimeClient();
-            bool connected = false;
+            
+            //Extrahieren von IP und Port aus args und connecten
             if (args.Length >= 1)
             {
-                if (args.Length >= 2 && int.TryParse(args[1], out port))
+                ip = IPAddress.Parse(args[0]);
+                if (args.Length >= 2)
                 {
-                    connected = _client.Connect(args[0], port);
+                    port = int.Parse(args[1]);
+                    _client.Connect(ip, port);
                 }
                 else
                 {
-                    connected = _client.Connect(args[0]);
+                    _client.Connect(ip, 4004);
                 }
             }
             else
             {
-                connected = _client.Connect();
+                _client.Connect(IPAddress.Loopback, 4004);
             }
-
-            if (!connected)
-            {
-                Console.WriteLine("Failed to connect");
-                return;
-            }
-            else
-            {
-                string welcomeMsg = _client.Receive();
-                Console.WriteLine(welcomeMsg);
-            }
+            
+            //Kommunikation mit dem Server
             while (true)
             {
                 try

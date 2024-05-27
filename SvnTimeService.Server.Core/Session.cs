@@ -26,7 +26,6 @@ namespace SvnTimeService.Server.Core
 
         public void HandleCommunication()
         {
-            _socketWriter.Write($"Welcome, the available commands are: getList, getDuration <user>, getUserDiary <user>");
             while (true)
             {
                 try

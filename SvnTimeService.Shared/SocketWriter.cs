@@ -14,7 +14,7 @@ namespace SvnTimeService.Shared
 
         public void Write(string msg)
         {
-            _socket.Send(Encoding.ASCII.GetBytes(msg));
+            _socket.Send(Encoding.UTF8.GetBytes(msg));
         }
     }
 }

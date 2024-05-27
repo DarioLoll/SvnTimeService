@@ -20,7 +20,7 @@ namespace SvnTimeService.Server.Core
         {
             /* Beispiel
              * Legende: Revision;Author;Date;CommitMessage
-                1311;normalverbrauchero;01.01.2017;#comment:Entwurf OberservationItem #duration: 4
+                1311;normalverbrauchero;01.01.2017;#comment:Entwurf OberservationItem #duration: 2.7
              */
             try
             {
@@ -49,7 +49,7 @@ namespace SvnTimeService.Server.Core
              * Legende: Revision;Author;Date;CommitMessage
                 1311;normalverbrauchero;01.01.2017;#comment:Entwurf OberservationItem #duration: 4
              */
-            return $"{Revision};{Author};{Date.ToString("dd.MM.yyyy")};#comment:{UserComment} #duration:{Duration}";
+            return $"{Revision};{Author};{Date.ToShortDateString()};#comment:{UserComment} #duration:{Duration}";
         }
     }
 }

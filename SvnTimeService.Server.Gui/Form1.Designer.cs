@@ -33,11 +33,11 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.tbxIp = new System.Windows.Forms.TextBox();
-            this.tbxPort = new System.Windows.Forms.TextBox();
             this.lblIp = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lstSystemLogs = new System.Windows.Forms.ListBox();
             this.lstRequestLogs = new System.Windows.Forms.ListBox();
+            this.tbxPort = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -79,15 +79,6 @@
             this.tbxIp.TabIndex = 3;
             this.tbxIp.Text = "127.0.0.1";
             // 
-            // tbxPort
-            // 
-            this.tbxPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPort.Location = new System.Drawing.Point(196, 151);
-            this.tbxPort.Name = "tbxPort";
-            this.tbxPort.Size = new System.Drawing.Size(224, 29);
-            this.tbxPort.TabIndex = 4;
-            this.tbxPort.Text = "4004";
-            // 
             // lblIp
             // 
             this.lblIp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,6 +117,15 @@
             this.lstRequestLogs.Size = new System.Drawing.Size(321, 186);
             this.lstRequestLogs.TabIndex = 8;
             // 
+            // tbxPort
+            // 
+            this.tbxPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPort.Location = new System.Drawing.Point(196, 151);
+            this.tbxPort.Name = "tbxPort";
+            this.tbxPort.Size = new System.Drawing.Size(224, 29);
+            this.tbxPort.TabIndex = 4;
+            this.tbxPort.Text = "4004";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,17 +147,15 @@
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ListBox lstRequestLogs;
-
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox lstSystemLogs;
-
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.TextBox tbxIp;
-        private System.Windows.Forms.TextBox tbxPort;
         private System.Windows.Forms.Label lblIp;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox lstSystemLogs;
+        private System.Windows.Forms.ListBox lstRequestLogs;
+        private System.Windows.Forms.TextBox tbxPort;
 
         #endregion
     }
